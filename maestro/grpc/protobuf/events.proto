@@ -3,8 +3,16 @@ syntax = "proto3";
 package eventforwarder;
 
 service GRPCForwarder {
+  rpc SendRoomInfo(RoomInfo) returns (Response) {}
   rpc SendRoomStatus(RoomStatus) returns (Response) {}
+  rpc SendRoomEvent(RoomEvent) returns (Response) {}
   rpc SendPlayerEvent(PlayerEvent) returns (Response) {}
+}
+
+message RoomEvent {
+  Room room = 1;
+  string eventType = 2;
+  map<string, string> metadata = 3;
 }
 
 message RoomStatus {
@@ -30,11 +38,21 @@ message PlayerEvent {
   string playerId = 1;
   Room room = 2;
   PlayerEventType eventType = 3;
-  map<string, string> metadata =4;
+  map<string, string> metadata = 4;
   enum PlayerEventType {
     PLAYER_JOINED = 0;
     PLAYER_LEFT = 1;
   }
+}
+
+message RoomInfo {
+  string roomType = 1;
+  int32 numberOfTeams = 2;
+  int32 playersPerTeam = 3;
+  int32 minimumNumberOfPlayers = 4;
+  string matchmakingScript = 5;
+  string webhookUrl = 6;
+  map<string, string> metadata = 7;
 }
 
 message Response {
