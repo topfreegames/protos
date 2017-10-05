@@ -47,12 +47,13 @@ message PlayerEvent {
 
 message RoomInfo {
   string roomType = 1;
-  int32 numberOfTeams = 2;
-  int32 playersPerTeam = 3;
-  int32 minimumNumberOfPlayers = 4;
-  string matchmakingScript = 5;
-  string webhookUrl = 6;
-  map<string, string> metadata = 7;
+  string game = 2;
+  int32 numberOfTeams = 3;
+  int32 playersPerTeam = 4;
+  int32 minimumNumberOfPlayers = 5;
+  string matchmakingScript = 6;
+  string webhookUrl = 7;
+  map<string, string> metadata = 8;
 }
 
 message Response {

@@ -23,6 +23,7 @@ func (*server) SendRoomInfo(ctx context.Context, roomInfo *pb.RoomInfo) (*pb.Res
         fmt.Println(
                 "Received msg",
                 roomInfo.GetRoomType(),
+                roomInfo.GetGame(),
                 roomInfo.GetNumberOfTeams(),
                 roomInfo.GetPlayersPerTeam(),
                 roomInfo.GetMinimumNumberOfPlayers(),

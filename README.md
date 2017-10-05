@@ -16,9 +16,11 @@ This package contains the common .proto files and related generated code we use 
   * Added SendRoomInfo
   * Added SendRoomEvent
 
+#### v1.1.1
+
+* Maestro
+  * Fixed missing game in SendRoomInfo
 
 ### TODOs
 
 [ ] Add instructions on how to run the example server
-
-[ ] Add unit tests using the example server
