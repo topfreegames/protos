@@ -21,6 +21,11 @@ This package contains the common .proto files and related generated code we use 
 * Maestro
   * Fixed missing game in SendRoomInfo
 
+#### v1.2.0
+
+* Maestro
+  * Added SendRoomPing
+
 ### TODOs
 
 [ ] Add instructions on how to run the example server

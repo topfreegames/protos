@@ -45,6 +45,14 @@ func (*server) SendRoomStatus(ctx context.Context, roomStatus *pb.RoomStatus) (*
         }, nil
 }
 
+func (*server) SendRoomPing(ctx context.Context, roomStatus *pb.RoomStatus) (*pb.Response, error) {
+        fmt.Println("Received msg", roomStatus.GetRoom(), roomStatus.GetStatusType())
+        return &pb.Response{
+                Message: "Hi!",
+                Code:    200,
+        }, nil
+}
+
 func (*server) SendRoomEvent(ctx context.Context, roomEvent *pb.RoomEvent) (*pb.Response, error) {
         fmt.Println(
                 "Received msg",
