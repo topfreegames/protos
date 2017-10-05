@@ -20,4 +20,5 @@ This package contains the common .proto files and related generated code we use 
 ### TODOs
 
 [ ] Add instructions on how to run the example server
+
 [ ] Add unit tests using the example server
