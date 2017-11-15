@@ -55,6 +55,7 @@ message RoomInfo {
   string matchmakingScript = 6;
   string webhookUrl = 7;
   map<string, string> metadata = 8;
+  map<string, string> tags = 9;
 }
 
 message Response {

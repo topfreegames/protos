@@ -26,6 +26,11 @@ This package contains the common .proto files and related generated code we use 
 * Maestro
   * Added SendRoomPing
 
+#### v1.3.0
+
+* Maestro
+  * Added tags in SendRoomInfo
+
 ### TODOs
 
 [ ] Add instructions on how to run the example server
