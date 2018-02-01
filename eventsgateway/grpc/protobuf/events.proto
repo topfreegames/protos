@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package eventforwarder;
+
+service GRPCForwarder {
+  rpc SendEvent(Event) returns (Response) {}
+}
+
+message Event {
+  string id = 1;
+  string name = 2;
+  string topic = 3;
+  map<string, string> props = 4;
+}
+
+message Response {
+  int32 code = 1;
+  string message = 2;
+}

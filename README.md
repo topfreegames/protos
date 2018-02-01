@@ -31,6 +31,11 @@ This package contains the common .proto files and related generated code we use 
 * Maestro
   * Added tags in SendRoomInfo
 
+#### v1.4.0
+
+* Events Gateway
+  * Grpc events proto and golang generated file
+
 ### TODOs
 
 [ ] Add instructions on how to run the example server
