@@ -5,35 +5,38 @@ This package contains the common .proto files and related generated code we use 
 
 
 ### Changelog
-#### v1.0.0
+#### v1.4.1
+* Events Gateway
+  * Added timestamp in Event
 
-* Maestro
+#### v1.4.0
+
+* Events Gateway
   * Grpc events proto and golang generated file
-
-#### v1.1.0
-
-* Maestro
-  * Added SendRoomInfo
-  * Added SendRoomEvent
-
-#### v1.1.1
-
-* Maestro
-  * Fixed missing game in SendRoomInfo
-
-#### v1.2.0
-
-* Maestro
-  * Added SendRoomPing
 
 #### v1.3.0
 
 * Maestro
   * Added tags in SendRoomInfo
 
-#### v1.4.0
+#### v1.2.0
 
-* Events Gateway
+* Maestro
+  * Added SendRoomPing
+
+#### v1.1.1
+
+* Maestro
+  * Fixed missing game in SendRoomInfo
+#### v1.1.0
+
+* Maestro
+  * Added SendRoomInfo
+  * Added SendRoomEvent
+
+#### v1.0.0
+
+* Maestro
   * Grpc events proto and golang generated file
 
 ### TODOs

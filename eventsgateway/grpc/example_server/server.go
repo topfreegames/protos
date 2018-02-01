@@ -27,6 +27,7 @@ func (*server) SendEvent(ctx context.Context, event *pb.Event) (*pb.Response, er
 		event.GetName(),
 		event.GetTopic(),
 		event.GetProps(),
+		event.GetTimestamp(),
 	)
 	return &pb.Response{
 		Message: "ack",
@@ -43,5 +44,8 @@ func main() {
 	grpcServer := grpc.NewServer()
 	pb.RegisterGRPCForwarderServer(grpcServer, &server{})
 
-	grpcServer.Serve(lis)
+	err = grpcServer.Serve(lis)
+	if err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
 }

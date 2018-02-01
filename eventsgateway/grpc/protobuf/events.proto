@@ -11,6 +11,7 @@ message Event {
   string name = 2;
   string topic = 3;
   map<string, string> props = 4;
+  int64 timestamp = 5;
 }
 
 message Response {
