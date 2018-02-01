@@ -5,6 +5,10 @@ This package contains the common .proto files and related generated code we use 
 
 
 ### Changelog
+#### v1.4.2
+* Events Gateway
+  * Empty response
+
 #### v1.4.1
 * Events Gateway
   * Added timestamp in Event

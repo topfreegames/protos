@@ -29,10 +29,7 @@ func (*server) SendEvent(ctx context.Context, event *pb.Event) (*pb.Response, er
 		event.GetProps(),
 		event.GetTimestamp(),
 	)
-	return &pb.Response{
-		Message: "ack",
-		Code:    200,
-	}, nil
+	return &pb.Response{}, nil
 }
 
 func main() {
