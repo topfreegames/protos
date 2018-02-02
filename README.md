@@ -5,6 +5,10 @@ This package contains the common .proto files and related generated code we use 
 
 
 ### Changelog
+#### v1.4.4
+* Events Gateway
+  * Changed package
+
 #### v1.4.3
 * Events Gateway
   * Added mock file

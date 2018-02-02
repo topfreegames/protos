@@ -2,7 +2,7 @@
 // source: eventsgateway/grpc/protobuf/events.proto
 
 /*
-Package eventforwarder is a generated protocol buffer package.
+Package eventsgateway is a generated protocol buffer package.
 
 It is generated from these files:
 	eventsgateway/grpc/protobuf/events.proto
@@ -11,7 +11,7 @@ It has these top-level messages:
 	Event
 	Response
 */
-package eventforwarder
+package eventsgateway
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
@@ -90,8 +90,8 @@ func (*Response) ProtoMessage()               {}
 func (*Response) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
 func init() {
-	proto.RegisterType((*Event)(nil), "eventforwarder.Event")
-	proto.RegisterType((*Response)(nil), "eventforwarder.Response")
+	proto.RegisterType((*Event)(nil), "eventsgateway.Event")
+	proto.RegisterType((*Response)(nil), "eventsgateway.Response")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -118,7 +118,7 @@ func NewGRPCForwarderClient(cc *grpc.ClientConn) GRPCForwarderClient {
 
 func (c *gRPCForwarderClient) SendEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := grpc.Invoke(ctx, "/eventforwarder.GRPCForwarder/SendEvent", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/eventsgateway.GRPCForwarder/SendEvent", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -145,7 +145,7 @@ func _GRPCForwarder_SendEvent_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/eventforwarder.GRPCForwarder/SendEvent",
+		FullMethod: "/eventsgateway.GRPCForwarder/SendEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GRPCForwarderServer).SendEvent(ctx, req.(*Event))
@@ -154,7 +154,7 @@ func _GRPCForwarder_SendEvent_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 var _GRPCForwarder_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "eventforwarder.GRPCForwarder",
+	ServiceName: "eventsgateway.GRPCForwarder",
 	HandlerType: (*GRPCForwarderServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

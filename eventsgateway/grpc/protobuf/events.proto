@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package eventforwarder;
+package eventsgateway;
 
 service GRPCForwarder {
   rpc SendEvent(Event) returns (Response) {}
