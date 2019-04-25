@@ -14,7 +14,10 @@
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
+    "ptypes",
     "ptypes/any",
+    "ptypes/duration",
+    "ptypes/timestamp",
   ]
   pruneopts = ""
   revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
@@ -35,6 +38,14 @@
   ]
   pruneopts = ""
   revision = "57efc9c3d9f91fb3277f8da1cff370539c4d3dc5"
+
+[[projects]]
+  branch = "master"
+  digest = "1:2f5c5fbafbc17ead793c4584c8d6ebbc16cf666d969488a0009a8a6a5008a86f"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  pruneopts = ""
+  revision = "d89cdac9e8725f2aefce25fcbfef41134c9ad412"
 
 [[projects]]
   branch = "master"
@@ -63,28 +74,45 @@
   revision = "ee236bd376b077c7a89f260c026c4735b195e459"
 
 [[projects]]
-  digest = "1:00fa1f54ca71953ffed4fd5c8f50600e63b0aa7411561d7af15a7712bceda73a"
+  digest = "1:afc1b03a6d5ba3cbb2e0a12133e734d472e4df3b65f06e600a3d57a4b82f26cc"
   name = "google.golang.org/grpc"
   packages = [
     ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
+    "binarylog/grpc_binarylog_v1",
     "codes",
     "connectivity",
     "credentials",
-    "grpclb/grpc_lb_v1",
+    "credentials/internal",
+    "encoding",
+    "encoding/proto",
     "grpclog",
     "internal",
+    "internal/backoff",
+    "internal/balancerload",
+    "internal/binarylog",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/grpcsync",
+    "internal/syscall",
+    "internal/transport",
     "keepalive",
     "metadata",
     "naming",
     "peer",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
     "stats",
     "status",
     "tap",
-    "transport",
   ]
   pruneopts = ""
-  revision = "b3ddf786825de56a4178401b7e174ee332173b66"
-  version = "v1.5.2"
+  revision = "25c4f928eaa6d96443009bd842389fb4fa48664e"
+  version = "v1.20.1"
 
 [solve-meta]
   analyzer-name = "dep"

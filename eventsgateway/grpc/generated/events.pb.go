@@ -23,6 +23,44 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+type Error struct {
+	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Error) Reset()         { *m = Error{} }
+func (m *Error) String() string { return proto.CompactTextString(m) }
+func (*Error) ProtoMessage()    {}
+func (*Error) Descriptor() ([]byte, []int) {
+	return fileDescriptor_events_1562bbdc7a8292b0, []int{0}
+}
+func (m *Error) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Error.Unmarshal(m, b)
+}
+func (m *Error) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Error.Marshal(b, m, deterministic)
+}
+func (dst *Error) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Error.Merge(dst, src)
+}
+func (m *Error) XXX_Size() int {
+	return xxx_messageInfo_Error.Size(m)
+}
+func (m *Error) XXX_DiscardUnknown() {
+	xxx_messageInfo_Error.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Error proto.InternalMessageInfo
+
+func (m *Error) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 type Event struct {
 	Id                   string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name                 string            `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -38,7 +76,7 @@ func (m *Event) Reset()         { *m = Event{} }
 func (m *Event) String() string { return proto.CompactTextString(m) }
 func (*Event) ProtoMessage()    {}
 func (*Event) Descriptor() ([]byte, []int) {
-	return fileDescriptor_events_93f78b8dbc741634, []int{0}
+	return fileDescriptor_events_1562bbdc7a8292b0, []int{1}
 }
 func (m *Event) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Event.Unmarshal(m, b)
@@ -93,40 +131,127 @@ func (m *Event) GetTimestamp() int64 {
 	return 0
 }
 
-type Response struct {
+type SendEventsRequest struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Events               []*Event `protobuf:"bytes,2,rep,name=events,proto3" json:"events,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Response) Reset()         { *m = Response{} }
-func (m *Response) String() string { return proto.CompactTextString(m) }
-func (*Response) ProtoMessage()    {}
-func (*Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_events_93f78b8dbc741634, []int{1}
+func (m *SendEventsRequest) Reset()         { *m = SendEventsRequest{} }
+func (m *SendEventsRequest) String() string { return proto.CompactTextString(m) }
+func (*SendEventsRequest) ProtoMessage()    {}
+func (*SendEventsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_events_1562bbdc7a8292b0, []int{2}
 }
-func (m *Response) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Response.Unmarshal(m, b)
+func (m *SendEventsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendEventsRequest.Unmarshal(m, b)
 }
-func (m *Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Response.Marshal(b, m, deterministic)
+func (m *SendEventsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendEventsRequest.Marshal(b, m, deterministic)
 }
-func (dst *Response) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Response.Merge(dst, src)
+func (dst *SendEventsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendEventsRequest.Merge(dst, src)
 }
-func (m *Response) XXX_Size() int {
-	return xxx_messageInfo_Response.Size(m)
+func (m *SendEventsRequest) XXX_Size() int {
+	return xxx_messageInfo_SendEventsRequest.Size(m)
 }
-func (m *Response) XXX_DiscardUnknown() {
-	xxx_messageInfo_Response.DiscardUnknown(m)
+func (m *SendEventsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendEventsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Response proto.InternalMessageInfo
+var xxx_messageInfo_SendEventsRequest proto.InternalMessageInfo
+
+func (m *SendEventsRequest) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *SendEventsRequest) GetEvents() []*Event {
+	if m != nil {
+		return m.Events
+	}
+	return nil
+}
+
+type SendEventResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SendEventResponse) Reset()         { *m = SendEventResponse{} }
+func (m *SendEventResponse) String() string { return proto.CompactTextString(m) }
+func (*SendEventResponse) ProtoMessage()    {}
+func (*SendEventResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_events_1562bbdc7a8292b0, []int{3}
+}
+func (m *SendEventResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendEventResponse.Unmarshal(m, b)
+}
+func (m *SendEventResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendEventResponse.Marshal(b, m, deterministic)
+}
+func (dst *SendEventResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendEventResponse.Merge(dst, src)
+}
+func (m *SendEventResponse) XXX_Size() int {
+	return xxx_messageInfo_SendEventResponse.Size(m)
+}
+func (m *SendEventResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendEventResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SendEventResponse proto.InternalMessageInfo
+
+type SendEventsResponse struct {
+	FailureIndexes       []int64  `protobuf:"varint,1,rep,packed,name=failureIndexes,proto3" json:"failureIndexes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SendEventsResponse) Reset()         { *m = SendEventsResponse{} }
+func (m *SendEventsResponse) String() string { return proto.CompactTextString(m) }
+func (*SendEventsResponse) ProtoMessage()    {}
+func (*SendEventsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_events_1562bbdc7a8292b0, []int{4}
+}
+func (m *SendEventsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendEventsResponse.Unmarshal(m, b)
+}
+func (m *SendEventsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendEventsResponse.Marshal(b, m, deterministic)
+}
+func (dst *SendEventsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendEventsResponse.Merge(dst, src)
+}
+func (m *SendEventsResponse) XXX_Size() int {
+	return xxx_messageInfo_SendEventsResponse.Size(m)
+}
+func (m *SendEventsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendEventsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SendEventsResponse proto.InternalMessageInfo
+
+func (m *SendEventsResponse) GetFailureIndexes() []int64 {
+	if m != nil {
+		return m.FailureIndexes
+	}
+	return nil
+}
 
 func init() {
+	proto.RegisterType((*Error)(nil), "eventsgateway.Error")
 	proto.RegisterType((*Event)(nil), "eventsgateway.Event")
 	proto.RegisterMapType((map[string]string)(nil), "eventsgateway.Event.PropsEntry")
-	proto.RegisterType((*Response)(nil), "eventsgateway.Response")
+	proto.RegisterType((*SendEventsRequest)(nil), "eventsgateway.SendEventsRequest")
+	proto.RegisterType((*SendEventResponse)(nil), "eventsgateway.SendEventResponse")
+	proto.RegisterType((*SendEventsResponse)(nil), "eventsgateway.SendEventsResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -141,7 +266,8 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GRPCForwarderClient interface {
-	SendEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error)
+	SendEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*SendEventResponse, error)
+	SendEvents(ctx context.Context, in *SendEventsRequest, opts ...grpc.CallOption) (*SendEventsResponse, error)
 }
 
 type gRPCForwarderClient struct {
@@ -152,9 +278,18 @@ func NewGRPCForwarderClient(cc *grpc.ClientConn) GRPCForwarderClient {
 	return &gRPCForwarderClient{cc}
 }
 
-func (c *gRPCForwarderClient) SendEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *gRPCForwarderClient) SendEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*SendEventResponse, error) {
+	out := new(SendEventResponse)
 	err := c.cc.Invoke(ctx, "/eventsgateway.GRPCForwarder/SendEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gRPCForwarderClient) SendEvents(ctx context.Context, in *SendEventsRequest, opts ...grpc.CallOption) (*SendEventsResponse, error) {
+	out := new(SendEventsResponse)
+	err := c.cc.Invoke(ctx, "/eventsgateway.GRPCForwarder/SendEvents", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +298,8 @@ func (c *gRPCForwarderClient) SendEvent(ctx context.Context, in *Event, opts ...
 
 // GRPCForwarderServer is the server API for GRPCForwarder service.
 type GRPCForwarderServer interface {
-	SendEvent(context.Context, *Event) (*Response, error)
+	SendEvent(context.Context, *Event) (*SendEventResponse, error)
+	SendEvents(context.Context, *SendEventsRequest) (*SendEventsResponse, error)
 }
 
 func RegisterGRPCForwarderServer(s *grpc.Server, srv GRPCForwarderServer) {
@@ -188,6 +324,24 @@ func _GRPCForwarder_SendEvent_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GRPCForwarder_SendEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GRPCForwarderServer).SendEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/eventsgateway.GRPCForwarder/SendEvents",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GRPCForwarderServer).SendEvents(ctx, req.(*SendEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _GRPCForwarder_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "eventsgateway.GRPCForwarder",
 	HandlerType: (*GRPCForwarderServer)(nil),
@@ -196,29 +350,38 @@ var _GRPCForwarder_serviceDesc = grpc.ServiceDesc{
 			MethodName: "SendEvent",
 			Handler:    _GRPCForwarder_SendEvent_Handler,
 		},
+		{
+			MethodName: "SendEvents",
+			Handler:    _GRPCForwarder_SendEvents_Handler,
+		},
 	},
-	Streams: []grpc.StreamDesc{},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "events.proto",
 }
 
-func init() { proto.RegisterFile("events.proto", fileDescriptor_events_93f78b8dbc741634) }
+func init() { proto.RegisterFile("events.proto", fileDescriptor_events_1562bbdc7a8292b0) }
 
-var fileDescriptor_events_93f78b8dbc741634 = []byte{
-	// 242 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xd1, 0x4a, 0xc3, 0x30,
-	0x14, 0x86, 0x4d, 0xbb, 0x8a, 0x3d, 0x3a, 0x91, 0xc3, 0xc0, 0x30, 0x04, 0x4b, 0xaf, 0x7a, 0xd5,
-	0x8b, 0x89, 0x30, 0xc4, 0x3b, 0x99, 0x5e, 0x09, 0x23, 0x3e, 0x41, 0xb4, 0x07, 0x29, 0xda, 0x24,
-	0x24, 0x71, 0xa3, 0x6f, 0xe9, 0x23, 0x49, 0x12, 0xc7, 0x50, 0x76, 0x77, 0xfe, 0x8f, 0x93, 0x3f,
-	0x5f, 0x02, 0x67, 0xb4, 0x21, 0xe5, 0x5d, 0x6b, 0xac, 0xf6, 0x1a, 0xa7, 0x29, 0xbd, 0x4b, 0x4f,
-	0x5b, 0x39, 0xd6, 0xdf, 0x0c, 0x8a, 0x55, 0x20, 0x78, 0x0e, 0x59, 0xdf, 0x71, 0x56, 0xb1, 0xa6,
-	0x14, 0x59, 0xdf, 0x21, 0xc2, 0x44, 0xc9, 0x81, 0x78, 0x16, 0x49, 0x9c, 0x71, 0x06, 0x85, 0xd7,
-	0xa6, 0x7f, 0xe3, 0x79, 0x84, 0x29, 0xe0, 0x2d, 0x14, 0xc6, 0x6a, 0xe3, 0xf8, 0xa4, 0xca, 0x9b,
-	0xd3, 0xc5, 0x75, 0xfb, 0xe7, 0x8a, 0x36, 0xd6, 0xb7, 0xeb, 0xb0, 0xb1, 0x52, 0xde, 0x8e, 0x22,
-	0x6d, 0xe3, 0x15, 0x94, 0xbe, 0x1f, 0xc8, 0x79, 0x39, 0x18, 0x5e, 0x54, 0xac, 0xc9, 0xc5, 0x1e,
-	0xcc, 0x97, 0x00, 0xfb, 0x23, 0x78, 0x01, 0xf9, 0x07, 0x8d, 0xbf, 0x76, 0x61, 0x0c, 0x2a, 0x1b,
-	0xf9, 0xf9, 0xb5, 0xf3, 0x4b, 0xe1, 0x2e, 0x5b, 0xb2, 0x1a, 0xe0, 0x44, 0x90, 0x33, 0x5a, 0x39,
-	0x5a, 0x3c, 0xc3, 0xf4, 0x49, 0xac, 0x1f, 0x1e, 0xb5, 0xdd, 0x4a, 0xdb, 0x91, 0xc5, 0x7b, 0x28,
-	0x5f, 0x48, 0x75, 0xe9, 0xc9, 0xb3, 0x43, 0xa6, 0xf3, 0xcb, 0x7f, 0x74, 0x57, 0x56, 0x1f, 0xbd,
-	0x1e, 0xc7, 0x3f, 0xbc, 0xf9, 0x09, 0x00, 0x00, 0xff, 0xff, 0x69, 0x6e, 0xde, 0xad, 0x53, 0x01,
-	0x00, 0x00,
+var fileDescriptor_events_1562bbdc7a8292b0 = []byte{
+	// 335 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xcf, 0x4e, 0xf2, 0x40,
+	0x14, 0xc5, 0xbf, 0xb6, 0x94, 0x2f, 0x5c, 0x85, 0xe8, 0x95, 0xc5, 0x84, 0x98, 0x58, 0xba, 0x30,
+	0x5d, 0x98, 0x2e, 0x30, 0x26, 0xc4, 0xb8, 0x33, 0xd5, 0xb8, 0xc3, 0xe1, 0x09, 0x46, 0x7b, 0x25,
+	0x8d, 0xf4, 0x8f, 0x33, 0x03, 0xc8, 0x33, 0xf9, 0x32, 0x3e, 0x92, 0xe9, 0x94, 0x0a, 0x02, 0xba,
+	0xbb, 0xe7, 0xf4, 0xdc, 0x73, 0x7f, 0x6d, 0x0a, 0x87, 0x34, 0xa7, 0x4c, 0xab, 0xb0, 0x90, 0xb9,
+	0xce, 0xb1, 0x5d, 0xa9, 0x89, 0xd0, 0xb4, 0x10, 0x4b, 0xbf, 0x0f, 0x6e, 0x24, 0x65, 0x2e, 0x91,
+	0xc1, 0xff, 0x94, 0x94, 0x12, 0x13, 0x62, 0x96, 0x67, 0x05, 0x2d, 0x5e, 0x4b, 0xff, 0xd3, 0x02,
+	0x37, 0x2a, 0x97, 0xb0, 0x03, 0x76, 0x12, 0xaf, 0x1e, 0xdb, 0x49, 0x8c, 0x08, 0x8d, 0x4c, 0xa4,
+	0xc4, 0x6c, 0xe3, 0x98, 0x19, 0xbb, 0xe0, 0xea, 0xbc, 0x48, 0x9e, 0x99, 0x63, 0xcc, 0x4a, 0xe0,
+	0x15, 0xb8, 0x85, 0xcc, 0x0b, 0xc5, 0x1a, 0x9e, 0x13, 0x1c, 0x0c, 0xce, 0xc2, 0x1f, 0x14, 0xa1,
+	0xa9, 0x0f, 0x47, 0x65, 0x22, 0xca, 0xb4, 0x5c, 0xf2, 0x2a, 0x8d, 0xa7, 0xd0, 0xd2, 0x49, 0x4a,
+	0x4a, 0x8b, 0xb4, 0x60, 0xae, 0x67, 0x05, 0x0e, 0x5f, 0x1b, 0xbd, 0x21, 0xc0, 0x7a, 0x05, 0x8f,
+	0xc0, 0x79, 0xa5, 0xe5, 0x8a, 0xae, 0x1c, 0x4b, 0x94, 0xb9, 0x98, 0xce, 0x6a, 0xbe, 0x4a, 0x5c,
+	0xdb, 0x43, 0xcb, 0x7f, 0x84, 0xe3, 0x31, 0x65, 0xb1, 0x39, 0xab, 0x38, 0xbd, 0xcd, 0x48, 0xed,
+	0xbe, 0xdd, 0x05, 0x34, 0x2b, 0x4a, 0x66, 0x1b, 0xe8, 0xee, 0x3e, 0x68, 0xbe, 0xca, 0xf8, 0x27,
+	0x1b, 0x95, 0x9c, 0x54, 0x91, 0x67, 0x8a, 0xfc, 0x1b, 0xc0, 0xcd, 0x3b, 0x95, 0x8b, 0xe7, 0xd0,
+	0x79, 0x11, 0xc9, 0x74, 0x26, 0xe9, 0x21, 0x8b, 0xe9, 0x9d, 0x14, 0xb3, 0x3c, 0x27, 0x70, 0xf8,
+	0x96, 0x3b, 0xf8, 0xb0, 0xa0, 0x7d, 0xcf, 0x47, 0xb7, 0x77, 0xb9, 0x5c, 0x08, 0x19, 0x93, 0xc4,
+	0x08, 0x5a, 0xdf, 0x7d, 0xb8, 0x97, 0xa7, 0xe7, 0x6d, 0xb9, 0xbb, 0x50, 0xff, 0x70, 0x0c, 0xb0,
+	0xc6, 0xc2, 0x5f, 0x37, 0xea, 0x2f, 0xd3, 0xeb, 0xff, 0x91, 0xa8, 0x4b, 0x9f, 0x9a, 0xe6, 0xff,
+	0xba, 0xfc, 0x0a, 0x00, 0x00, 0xff, 0xff, 0xa6, 0x94, 0x90, 0xbe, 0x6f, 0x02, 0x00, 0x00,
 }
