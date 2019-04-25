@@ -3,7 +3,12 @@ syntax = "proto3";
 package eventsgateway;
 
 service GRPCForwarder {
-  rpc SendEvent(Event) returns (Response) {}
+  rpc SendEvent(Event) returns (SendEventResponse) {}
+  rpc SendEvents(SendEventsRequest) returns (SendEventsResponse) {}
+}
+
+message Error {
+  string message = 1;
 }
 
 message Event {
@@ -14,4 +19,14 @@ message Event {
   int64 timestamp = 5;
 }
 
-message Response {}
+
+message SendEventsRequest {
+  string id = 1;
+  repeated Event events = 2;
+}
+
+message SendEventResponse {}
+
+message SendEventsResponse {
+  repeated int64 failureIndexes = 1;
+}
