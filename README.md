@@ -5,6 +5,17 @@ This package contains the common .proto files and related generated code we use 
 
 
 ### Changelog
+
+#### v1.6.0
+* Events Gateway
+  * `make eventsgateway` to build proto and mock
+  * Renamed some types
+  * Added SendEvents 
+* Maestro
+  * `make maestro` to build proto
+
+#### v1.5.0
+
 #### v1.4.4
 * Events Gateway
   * Changed package
