@@ -23,6 +23,7 @@ message Event {
 message SendEventsRequest {
   string id = 1;
   repeated Event events = 2;
+  int64 retry = 3;
 }
 
 message SendEventResponse {}

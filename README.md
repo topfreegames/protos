@@ -6,6 +6,10 @@ This package contains the common .proto files and related generated code we use 
 
 ### Changelog
 
+#### v1.6.1
+* Events Gateway
+  * Added "retry" to SendEventsRequest 
+
 #### v1.6.0
 * Events Gateway
   * `make eventsgateway` to build proto and mock
