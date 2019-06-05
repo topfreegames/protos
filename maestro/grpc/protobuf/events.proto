@@ -33,6 +33,7 @@ message Room {
   string host = 4;
   int32 port = 5;
   map<string, string> metadata = 6;
+  string roomType = 7;
 }
 
 message PlayerEvent {
