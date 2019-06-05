@@ -7,7 +7,7 @@ This package contains the common .proto files and related generated code we use 
 ### Changelog
 
 #### v1.6.2
-* Events Gateway
+* Maestro
   * Added "roomType" to Room 
 
 #### v1.6.1
