@@ -9,6 +9,7 @@ This package contains the common .proto files and related generated code we use 
 #### v1.6.2
 * Maestro
   * Added "roomType" to Room 
+  * Added "SendRoomResync" to GRPCForwarder 
 
 #### v1.6.1
 * Events Gateway
