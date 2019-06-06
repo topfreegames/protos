@@ -6,6 +6,7 @@ service GRPCForwarder {
   rpc SendRoomInfo(RoomInfo) returns (Response) {}
   rpc SendRoomStatus(RoomStatus) returns (Response) {}
   rpc SendRoomPing(RoomStatus) returns (Response) {}
+  rpc SendRoomResync(RoomStatus) returns (Response) {}
   rpc SendRoomEvent(RoomEvent) returns (Response) {}
   rpc SendPlayerEvent(PlayerEvent) returns (Response) {}
 }
@@ -33,6 +34,7 @@ message Room {
   string host = 4;
   int32 port = 5;
   map<string, string> metadata = 6;
+  string roomType = 7;
 }
 
 message PlayerEvent {
