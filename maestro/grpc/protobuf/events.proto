@@ -5,7 +5,7 @@ package eventforwarder;
 service GRPCForwarder {
   rpc SendRoomInfo(RoomInfo) returns (Response) {}
   rpc SendRoomStatus(RoomStatus) returns (Response) {}
-  rpc SendRoomPing(RoomStatus) returns (Response) {}
+  rpc SendRoomPing(Room) returns (Response) {}
   rpc SendRoomResync(RoomStatus) returns (Response) {}
   rpc SendRoomEvent(RoomEvent) returns (Response) {}
   rpc SendPlayerEvent(PlayerEvent) returns (Response) {}

@@ -6,6 +6,10 @@ This package contains the common .proto files and related generated code we use 
 
 ### Changelog
 
+#### v1.7.0
+* Maestro
+  * Change SendRoomPing method signature
+
 #### v1.6.2
 * Maestro
   * Added "roomType" to Room 
