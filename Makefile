@@ -5,6 +5,7 @@ setup:
 	@go get -d -u github.com/golang/protobuf/protoc-gen-go
 	@git -C $$GOPATH/src/github.com/golang/protobuf checkout v1.2.0 
 	@go install github.com/golang/protobuf/protoc-gen-go
+	@dep ensure
 
 eventsgateway:
 	@protoc -I eventsgateway/grpc/protobuf/ eventsgateway/grpc/protobuf/*.proto --go_out=plugins=grpc:eventsgateway/grpc/generated

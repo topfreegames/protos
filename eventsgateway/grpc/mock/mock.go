@@ -5,8 +5,8 @@
 package mock_eventsgateway
 
 import (
+	generated "github.com/ghostec/protos/eventsgateway/grpc/generated"
 	gomock "github.com/golang/mock/gomock"
-	generated "github.com/topfreegames/protos/eventsgateway/grpc/generated"
 	context "golang.org/x/net/context"
 	grpc "google.golang.org/grpc"
 	reflect "reflect"
@@ -37,6 +37,7 @@ func (m *MockGRPCForwarderClient) EXPECT() *MockGRPCForwarderClientMockRecorder 
 
 // SendEvent mocks base method
 func (m *MockGRPCForwarderClient) SendEvent(ctx context.Context, in *generated.Event, opts ...grpc.CallOption) (*generated.SendEventResponse, error) {
+	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
 	for _, a := range opts {
 		varargs = append(varargs, a)
@@ -49,12 +50,14 @@ func (m *MockGRPCForwarderClient) SendEvent(ctx context.Context, in *generated.E
 
 // SendEvent indicates an expected call of SendEvent
 func (mr *MockGRPCForwarderClientMockRecorder) SendEvent(ctx, in interface{}, opts ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendEvent", reflect.TypeOf((*MockGRPCForwarderClient)(nil).SendEvent), varargs...)
 }
 
 // SendEvents mocks base method
 func (m *MockGRPCForwarderClient) SendEvents(ctx context.Context, in *generated.SendEventsRequest, opts ...grpc.CallOption) (*generated.SendEventsResponse, error) {
+	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
 	for _, a := range opts {
 		varargs = append(varargs, a)
@@ -67,6 +70,7 @@ func (m *MockGRPCForwarderClient) SendEvents(ctx context.Context, in *generated.
 
 // SendEvents indicates an expected call of SendEvents
 func (mr *MockGRPCForwarderClientMockRecorder) SendEvents(ctx, in interface{}, opts ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendEvents", reflect.TypeOf((*MockGRPCForwarderClient)(nil).SendEvents), varargs...)
 }
@@ -96,6 +100,7 @@ func (m *MockGRPCForwarderServer) EXPECT() *MockGRPCForwarderServerMockRecorder 
 
 // SendEvent mocks base method
 func (m *MockGRPCForwarderServer) SendEvent(arg0 context.Context, arg1 *generated.Event) (*generated.SendEventResponse, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendEvent", arg0, arg1)
 	ret0, _ := ret[0].(*generated.SendEventResponse)
 	ret1, _ := ret[1].(error)
@@ -104,11 +109,13 @@ func (m *MockGRPCForwarderServer) SendEvent(arg0 context.Context, arg1 *generate
 
 // SendEvent indicates an expected call of SendEvent
 func (mr *MockGRPCForwarderServerMockRecorder) SendEvent(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendEvent", reflect.TypeOf((*MockGRPCForwarderServer)(nil).SendEvent), arg0, arg1)
 }
 
 // SendEvents mocks base method
 func (m *MockGRPCForwarderServer) SendEvents(arg0 context.Context, arg1 *generated.SendEventsRequest) (*generated.SendEventsResponse, error) {
+	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendEvents", arg0, arg1)
 	ret0, _ := ret[0].(*generated.SendEventsResponse)
 	ret1, _ := ret[1].(error)
@@ -117,5 +124,6 @@ func (m *MockGRPCForwarderServer) SendEvents(arg0 context.Context, arg1 *generat
 
 // SendEvents indicates an expected call of SendEvents
 func (mr *MockGRPCForwarderServerMockRecorder) SendEvents(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendEvents", reflect.TypeOf((*MockGRPCForwarderServer)(nil).SendEvents), arg0, arg1)
 }
