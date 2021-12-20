@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package eventforwarder;
 
-option go_package = "./maestro/grpc/generated";
+option go_package = "maestro/grpc/eventforwarder";
 
 service GRPCForwarder {
   rpc SendRoomInfo(RoomInfo) returns (Response) {}
