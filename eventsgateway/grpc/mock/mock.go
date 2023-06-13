@@ -5,7 +5,7 @@
 package mock_eventsgateway
 
 import (
-	generated "github.com/ghostec/protos/eventsgateway/grpc/generated"
+	generated "github.com/topfreegames/protos/eventsgateway/grpc/generated"
 	gomock "github.com/golang/mock/gomock"
 	context "golang.org/x/net/context"
 	grpc "google.golang.org/grpc"
