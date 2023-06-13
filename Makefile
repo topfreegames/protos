@@ -17,3 +17,6 @@ maestro:
 	@protoc --proto_path=maestro/grpc/protobuf/ maestro/grpc/protobuf/*.proto --go_out=plugins=grpc:maestro/grpc/generated --go_opt=paths=maestro/grpc/protobuf/*.proto maestro/grpc/protobuf/maestro_events.proto
 	
 	# @protoc -I maestro/grpc/protobuf/ maestro/grpc/protobuf/*.proto --go_out=plugins=grpc:maestro/grpc/generated
+
+healthcheck:
+	@protoc --go_out=./maestro/grpc/generated --go_opt=paths=source_relative   --go-grpc_out=./maestro/grpc/generated --go-grpc_opt=paths=source_relative maestro/grpc/protobuf/health-check.proto
